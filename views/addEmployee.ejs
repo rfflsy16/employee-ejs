@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl" href="/">Employee</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="/employees/add">Add Employee</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center font-bold text-2xl">
+        <h1>Add New Employee</h1>
+      </div>
+
+      <div class="flex justify-center">
+          <form action="/employees/add" method="post" class="flex flex-col w-1/2">
+            <label class="form-control w-full pt-6">
+              <div class="label">
+                <span class="label-text">Name</span>
+              </div>
+              <input type="text" placeholder="Input your name" class="input input-bordered w-full" />
+            </label>
+
+
+            <label class="form-control w-full pt-2"></label>
+              <div class="label">
+                <span class="label-text">Position</span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+            </label>
+
+
+            <label class="form-control w-full pt-2">
+              <div class="label">
+                <span class="label-text">Education</span>
+              </div>
+              <select class="select select-bordered">
+                <option disabled selected>Pick one</option>
+                <option value="Bachelor Degree">Bachelor Degree</option>
+                <option value="Master Degree">Master Degree</option>
+              </select>
+            </label>
+
+
+            <label class="form-control w-full pt-2"></label>
+              <div class="label">
+                <span class="label-text">Email</span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+            </label>
+
+            
+            <label class="form-control w-full pt-2"></label>
+              <div class="label">
+                <span class="label-text">Phone Number</span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+            </label>
+
+
+            <label class="form-control w-full pt-2"></label>
+              <div class="label">
+                <span class="label-text">Profile Picture</span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+            </label>
+
+
+            <label class="form-control w-full pt-2"></label>
+              <div class="label">
+                <span class="label-text">Age</span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+            </label>
+
+
+            <div class="form-control w-full py-6">
+              <button class="btn btn-warning">Submit</button>
+            </div>
+
+          </form>
+      </div>
+
+      
+
+</body>
+</html>

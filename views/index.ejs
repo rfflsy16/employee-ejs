@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl" href="/">Employee</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="/employees/add">Add Employee</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="flex flex-wrap justify-start">
+        <% employee.forEach(el => { %>
+            <div class="card bg-base-100 w-96 shadow-xl m-4">
+                <figure>
+                  <img
+                    src="<%= el.profile_picture %>" alt="Shoes" style="width: 300px; height: 200px;"/>
+                </figure>
+                <div class="card-body">
+                  <h2 class="card-title"><%= el.name %></h2>
+                  <p><span><%= el.position %></span> | <span><%= el.age %></span> | <span><%= el.education %></span></p>
+                  <div class="card-actions justify-end">
+                    <button class="btn btn-primary" onclick="location.href='/employees/<%= el.id %>'">See Details</button>
+                    <button class="btn btn-error" onclick="location.href='/employees/<%= el.id %>/delete'">Delete</button>
+                  </div>
+                </div>
+              </div>
+          <% }) %>
+      </div>
+
+      
+
+      
+
+
+</body>
+</html>
