@@ -18,6 +18,7 @@ class Controller {
         try {
             res.render('addEmployee')
         } catch (error) {
+            console.log(error)
             res.send(error)
         }
     }
@@ -29,6 +30,7 @@ class Controller {
             await Employee.create({name, position, education, email, phone_number, profile_picture, age})
             res.redirect('/')
         } catch (error) {
+            console.log(error)
             res.send(error)
         }
     }
