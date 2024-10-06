@@ -1,15 +1,24 @@
-const { where } = require('sequelize')
-const { Employee, sequelize } = require('../models')
+const { Employee } = require('../models')
+const { Op } = require('sequelize')
 
 class Controller {
     static async getAllEmployee(req, res) {
         try {
+            const { searchByName, searchByAge } = req.query
+            const stats = await Employee.getEmployeeStats()
             const employee = await Employee.findAll({
-
+                where: {
+                    [Op.and]: [
+                        searchByName ? { name: { [Op.iLike]: `%${searchByName}%` } } : {},
+                        searchByAge ? { age: { [Op.eq]: searchByAge } } : {}
+                    ]
+                },
+                order: [['age', 'ASC']]
             })
-            // console.log(employee)
-            res.render('index', { employee })
+            console.log(stats)
+            res.render('index', { employee, stats })
         } catch (error) {
+            console.log(error)
             res.send(error)
         }
     }
@@ -49,7 +58,7 @@ class Controller {
         try {
             const { id } = req.params
             const { name, position, education, email, phone_number, profile_picture, age } = req.body
-            await Employee.update({name, position, education, email, phone_number, profile_picture, age}, { where: { id } })
+            await Employee.update({ name, position, education, email, phone_number, profile_picture, age }, { where: { id } })
             res.redirect('/')
         } catch (error) {
             res.send(error)

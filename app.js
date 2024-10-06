@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const router = require('./routers/index.js')
-const port = 3000
+const port = 3001
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))

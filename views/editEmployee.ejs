@@ -20,69 +20,73 @@
         </div>
       </div>
 
+      <div class="flex justify-center mb-6">
+        <img src="<%= employee.profile_picture %>" alt="employee profile_picture" style="width: 600px; height: 400px;" >
+      </div>
+
       <div class="text-center font-bold text-2xl">
         <h1>Edit Employee</h1>
       </div>
 
       <div class="flex justify-center">
-          <form action="/employees/add" method="post" class="flex flex-col w-1/2">
-            <label class="form-control w-full pt-6">
+          <form action="/employees/<%= employee.id %>/edit" method="post" class="flex flex-col w-1/2">
+            <label class="form-control w-full pt-6" for="name">
               <div class="label">
                 <span class="label-text">Name</span>
               </div>
-              <input type="text" placeholder="Input your name" class="input input-bordered w-full" value="<%= employee.name %>"/>
+              <input type="text" placeholder="Input your name" class="input input-bordered w-full" id="name" name="name" value="<%= employee.name %>"/>
             </label>
 
 
-            <label class="form-control w-full pt-2"></label>
+            <label class="form-control w-full pt-2" for="position"></label>
               <div class="label">
                 <span class="label-text">Position</span>
               </div>
-              <input type="text" placeholder="Type here" class="input input-bordered w-full" value="<%= employee.position %>"/>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" id="position" name="position" value="<%= employee.position %>"/>
             </label>
 
 
-            <label class="form-control w-full pt-2">
+            <label class="form-control w-full pt-2" for="education">
               <div class="label">
                 <span class="label-text">Education</span>
               </div>
-              <select class="select select-bordered">
+              <select class="select select-bordered" id="education" name="education">
                 <option disabled selected>Pick one</option>
-                <option value="Bachelor Degree">Bachelor Degree</option>
-                <option value="Master Degree">Master Degree</option>
+                <option value="Bachelor Degree" <%= employee.education === "Bachelor Degree" ? 'Selected' : '' %>>Bachelor Degree</option>
+                <option value="Master Degree" <%= employee.education === "Master Degree" ? 'Selected' : '' %>>Master Degree</option>
               </select>
             </label>
 
 
-            <label class="form-control w-full pt-2"></label>
+            <label class="form-control w-full pt-2" for="email"></label>
               <div class="label">
                 <span class="label-text">Email</span>
               </div>
-              <input type="text" placeholder="Type here" class="input input-bordered w-full" value="<%= employee.email %>"/>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" id="email" name="email" value="<%= employee.email%>"/>
             </label>
 
             
-            <label class="form-control w-full pt-2"></label>
+            <label class="form-control w-full pt-2" for="phone_number"></label>
               <div class="label">
                 <span class="label-text">Phone Number</span>
               </div>
-              <input type="text" placeholder="Type here" class="input input-bordered w-full" value="<%= employee.phone_number %>"/>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" id="phone_number" name="phone_number" value="<%= employee.phone_number %>"/>
             </label>
 
 
-            <label class="form-control w-full pt-2"></label>
+            <label class="form-control w-full pt-2" for="profile_picture"></label>
               <div class="label">
                 <span class="label-text">Profile Picture</span>
               </div>
-              <input type="text" placeholder="Type here" class="input input-bordered w-full" value="<%= employee.profile_picture %>"/>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" id="profile_picture" name="profile_picture" value="<%= employee.profile_picture %>"/>
             </label>
 
 
-            <label class="form-control w-full pt-2"></label>
+            <label class="form-control w-full pt-2" for="age"></label>
               <div class="label">
                 <span class="label-text">Age</span>
               </div>
-              <input type="text" placeholder="Type here" class="input input-bordered w-full" value="<%= employee.age %>"/>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full" id="age" name="age" value="<%= employee.age %>"/>
             </label>
 
 
